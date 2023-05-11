@@ -84,3 +84,34 @@ newsletterForm.addEventListener("submit", function(event) {
     }
   });
 });
+
+function validateFeedbackForm() {
+  // Check if the name field is empty.
+  if (document.getElementById("name").value == "") {
+    alert("Please enter your name.");
+    return false;
+  }
+
+  // Check if the email field is empty.
+  if (document.getElementById("email").value == "") {
+    alert("Please enter your email address.");
+    return false;
+  }
+
+  // Check if the email address is valid.
+  var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  if (!re.test(document.getElementById("email").value)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  // Check if the message field is empty.
+  if (document.getElementById("message").value == "") {
+    alert("Please enter your message.");
+    return false;
+  }
+
+  // Everything is valid, so submit the form.
+  document.getElementById("feedback-form").submit();
+  return true;
+}
